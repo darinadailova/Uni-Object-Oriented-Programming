@@ -14,7 +14,7 @@ public:
 	Matrix();
 	Matrix(const unsigned int& rows, const unsigned int& colums);
 	Matrix(const Matrix& rhs);
-	Matrix<T>& operator=(const Matrix& rhs);
+	Matrix& operator=(const Matrix& rhs);
 	~Matrix();
 	void setAt(unsigned int x, unsigned int y, T element);
 	T getAt(unsigned int x, unsigned int y);

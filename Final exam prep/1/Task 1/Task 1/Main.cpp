@@ -8,12 +8,14 @@ int main() {
 	test1.setAt(2, 1, 4);
 	test1.setAt(2, 2, 1);
 	test1.printMatrix();
+	std::cout << '\n';
 	/*
 	(5,3)
 	(4,1)
 	*/
 	test1.transpose();
 	test1.printMatrix();
+	std::cout << '\n';
 	/*
 	(5,4)
 	(3,1)
