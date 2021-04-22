@@ -18,8 +18,8 @@ public:
 	~Matrix();
 	void setAt(unsigned int x, unsigned int y, T element);
 	T getAt(unsigned int x, unsigned int y);
-
 	void transpose();
+
 	void deleteMatrix();
 	void createMatrix(const unsigned int& rows, const unsigned int& colums);
 	void printMatrix() const;
@@ -29,24 +29,24 @@ template<typename T>
 Matrix<T>::Matrix() {
 	this->rows = DEFAULT_ROWS;
 	this->colums = DEFAULT_COLUMS;
-	createMatrix(DEFAULT_ROWS, DEFAULT_COLUMS);
+	this->createMatrix(DEFAULT_ROWS, DEFAULT_COLUMS);
 }
 
 template<typename T>
 Matrix<T>::Matrix(const unsigned int& rows, const unsigned int& colums) {
 	this->rows = rows;
 	this->colums = colums;
-	createMatrix(rows, colums);
+	this->createMatrix(rows, colums);
 }
 
 template<typename T>
 Matrix<T>::Matrix(const Matrix& rhs) {
 	this->rows = rhs.rows;
 	this->colums = rhs.colums;
-	createMatrix(this->rows, this->colums);
+	this->createMatrix(this->rows, this->colums);
 	for (unsigned int i = 0; i < rows; i++) {
 		for (unsigned int j = 0; j < colums; j++) {
-			matrix[i][j] = rhs.matrix[i][j];
+			this->matrix[i][j] = rhs.matrix[i][j];
 		}
 	}
 }
@@ -57,10 +57,10 @@ Matrix<T>& Matrix<T>::operator=(const Matrix& rhs) {
 		this->deleteMatrix();
 		this->rows = rhs.rows;
 		this->colums = rhs.colums;
-		createMatrix(this->rows, this->colums);
+		this->createMatrix(this->rows, this->colums);
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < colums; j++) {
-				matrix[i][j] = rhs.matrix[i][j];
+				this->matrix[i][j] = rhs.matrix[i][j];
 			}
 		}
 	}
@@ -98,22 +98,22 @@ void Matrix<T>::transpose() {
 template<typename T>
 void Matrix<T>::deleteMatrix() {
 	for (unsigned int i = 0; i < this->rows; i++) {
-		delete[] matrix[i];
+		delete[] this->matrix[i];
 	}
 
-	delete[] matrix;
+	delete[] this->matrix;
 }
 
 template<typename T>
 void Matrix<T>::createMatrix(const unsigned int& rows, const unsigned int& colums) {
-	matrix = new int* [rows];
+	this->matrix = new int* [rows];
 	for (unsigned int i = 0; i < rows; i++) {
-		matrix[i] = new int[colums];
+		this->matrix[i] = new int[colums];
 	}
 
 	for (unsigned int i = 0; i < rows; i++) {
 		for (unsigned int j = 0; j < colums; j++) {
-			matrix[i][j] = 0;
+			this->matrix[i][j] = 0;
 		}
 	}
 }
