@@ -17,8 +17,10 @@ Person::Person(const Person& rhs) {
 }
 
 Person& Person::operator=(const Person& rhs) {
-	deleteVec();
-	copyRhs(rhs);
+	if (this != &rhs) {
+		deleteVec();
+		copyRhs(rhs);
+	}
 	
 	return *this;
 }
