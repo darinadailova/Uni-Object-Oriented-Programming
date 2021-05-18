@@ -16,3 +16,5 @@ Final exam prep/1/Task 1/.vs/Task 1/v16/.suo
 *.vcxproj
 Final exam prep/1/Task 2/.vs/Task 2/v16/.suo
 Polymorphism/Task 1/Task 1/.vs/Task 1/v16/.suo
+.editorconfig
+*.json
