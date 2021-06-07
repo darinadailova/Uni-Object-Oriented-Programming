@@ -4,7 +4,7 @@ CentralBank::CentralBank(const std::string& newName) : name(newName) {}
 
 CentralBank::CentralBank(const CentralBank& rhs) {
 	this->name = rhs.name;
-	for (auto item : rhs.exchangeRates) {
+	for (auto& item : rhs.exchangeRates) {
 		this->exchangeRates.push_back(item);
 	}
 
@@ -16,7 +16,7 @@ CentralBank::CentralBank(const CentralBank& rhs) {
 CentralBank& CentralBank::operator=(const CentralBank& rhs) {
 	this->name = rhs.name;
 	this->exchangeRates.clear();
-	for (auto item : rhs.exchangeRates) {
+	for (auto& item : rhs.exchangeRates) {
 		this->exchangeRates.push_back(item);
 	}
 
