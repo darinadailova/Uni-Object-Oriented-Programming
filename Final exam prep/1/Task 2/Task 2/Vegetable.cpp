@@ -13,6 +13,7 @@ Vegetable::Vegetable(unsigned int calories, double price, const std::string& nam
 }
 
 Vegetable::Vegetable(const Vegetable& rhs) {
+    this->setType(Type::VEGETABLE);
     this->setCalories(rhs.getCalories());
     this->setPrice(rhs.getPrice());
     this->name = rhs.name;

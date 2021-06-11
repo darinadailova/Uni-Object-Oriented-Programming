@@ -20,5 +20,5 @@ public:
 	void changeName(size_t index, const std::string& newName);
 
 	void info() const;
-	Fruit* fruitWithMostCalories() const;
+	void fruitWithMostCalories() const;
 };

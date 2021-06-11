@@ -5,6 +5,7 @@ Fruit::Fruit(unsigned int calories, double price, const std::string& name, const
 }
 
 Fruit::Fruit(const Fruit& rhs) {
+    this->setType(Type::FRUIT);
     this->setCalories(rhs.getCalories());
     this->setPrice(rhs.getPrice());
     this->name = rhs.name;

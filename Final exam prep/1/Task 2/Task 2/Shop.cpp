@@ -71,20 +71,16 @@ void Shop::info() const {
     }
 }
 
-Fruit* Shop::fruitWithMostCalories() const {
-    int temp = -1;
-    size_t tempIndex = -1;
+void Shop::fruitWithMostCalories() const {
+    int index = 0;
     for(size_t i = 0; i < items.size(); i++) {
-        if(items[i]->getType() == Type::FRUIT) {
-            Fruit* obj = dynamic_cast<Fruit*>(items[i]);
-            if(obj) {
-                if(obj->getCalories() > temp) {
-                    temp = obj->getCalories();
-                    tempIndex = i;
-                }
+        for(size_t j = i + 1; j < items.size(); j++) {
+            if(items[i]->getCalories() < items[j]->getCalories()) {
+                index = j;
             }
         }
     }
 
-    return dynamic_cast<Fruit*>(items[tempIndex]);
+    Fruit* obj = dynamic_cast<Fruit*>(items[index]);
+    obj->print();
 }
