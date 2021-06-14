@@ -1,14 +1,13 @@
 #pragma once
 #include "Var.hpp"
 #include "Const.hpp"
+#include "ArithmeticalOperation.hpp"
 
-class Product {
-	double expression1Value;
-	double expression2Value;
+class Product : public ArithmeticalOperation {
 public:
-	Product(Expression* newExpression1, Expression* newExpression2);
-
-	double value() const;
-	void print() const;
+    Product(Expression* expression1 = nullptr, Expression* expression2 = nullptr);
+    
+    virtual double value() const override;
+    virtual void print() const override;
 };
 

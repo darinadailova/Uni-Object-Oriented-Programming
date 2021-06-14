@@ -5,7 +5,7 @@
 class Var : public Expression {
 	char* name;
 public:
-	Var(double newValue = 0, char* newName = nullptr);
+	Var(char* newName = nullptr, double newValue = 0);
 	Var(const Var& rhs);
 	Var& operator=(const Var& rhs);
 	~Var();
@@ -14,5 +14,6 @@ public:
 	virtual double value() const override;
 	virtual void print() const override;
 	void setValue(double newValue);
+	virtual Expression* clone() const override;
 };
 

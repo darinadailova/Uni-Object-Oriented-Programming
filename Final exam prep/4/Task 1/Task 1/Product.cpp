@@ -1,14 +1,16 @@
 #include "Product.hpp"
 
-Product::Product(Expression* newExpression1, Expression* newExpression2) {
-    expression1Value = newExpression1->value();
-    expression2Value = newExpression2->value();
+Product::Product(Expression* expression1, Expression* expression2) 
+    : ArithmeticalOperation(expression1, expression2) {
 }
 
-double Product::value() const {
-    return expression1Value + expression2Value;
+double Product::value() const { 
+    return expressions[0]->value() * expressions[1]->value();
 }
 
-void Product::print() const {
-    std::cout << expression1Value + expression2Value << '\n';
+void Product::print() const { 
+    expressions[0]->print();
+    std::cout << " * ";
+    expressions[1]->print();
+    std::cout << "\nProduct: " << expressions[0]->value() * expressions[1]->value() << '\n';
 }

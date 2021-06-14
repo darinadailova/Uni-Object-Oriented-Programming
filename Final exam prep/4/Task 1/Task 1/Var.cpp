@@ -1,6 +1,6 @@
 #include "Var.hpp"
 
-Var::Var(double newValue, char* newName) : Expression(newValue) {
+Var::Var(char* newName, double newValue) : Expression(newValue) {
     copy(newName);
 }
 
@@ -38,9 +38,13 @@ double Var::value() const {
 }
 
 void Var::print() const {
-    std::cout << expressionValue << '\n';
+    std::cout << expressionValue;
 }
 
 void Var::setValue(double newValue) {
     expressionValue = newValue;
+}
+
+Expression* Var::clone() const { 
+    return new Var(*this);
 }
