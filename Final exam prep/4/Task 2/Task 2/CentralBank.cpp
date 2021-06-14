@@ -14,18 +14,22 @@ CentralBank::CentralBank(const CentralBank& rhs) {
 }
 
 CentralBank& CentralBank::operator=(const CentralBank& rhs) {
-	this->name = rhs.name;
-	this->exchangeRates.clear();
-	for (auto& item : rhs.exchangeRates) {
-		this->exchangeRates.push_back(item);
-	}
+	if(this != &rhs) {
+		this->name = rhs.name;
+		this->exchangeRates.clear();
+		for (auto& item : rhs.exchangeRates) {
+			this->exchangeRates.push_back(item);
+		}
+	
+		for (auto x : this->observers) {
+			delete x;
+		}
 
-	for (auto x : this->observers) {
-		delete x;
-	}
+		observers.clear();
 
-	for (auto observer : rhs.observers) {
-		this->observers.push_back(observer->clone());
+		for (auto observer : rhs.observers) {
+			this->observers.push_back(observer->clone());
+		}
 	}
 
 	return *this;
@@ -35,6 +39,8 @@ CentralBank::~CentralBank() {
 	for (auto x : this->observers) {
 		delete x;
 	}
+
+	observers.clear();
 }
 
 void CentralBank::addCurrency(std::pair<std::string, double> newExchange) {
